@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Lan";
+}
+
+<script type="text/javascript">
+    function hideRegistration() {
+        $("#RegDiv").toggle();
+        $("#LocationDiv").toggle();
+    }
+</script>
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                It's about time we've had ourselves a housewarming party, and what better way to do it than to have a bunch of people drag their computers up a whole bunch of stairs?
+            </p>
+        </div>
+    </section>
+}
+
+<br />
+
+<div>
+    <div id="RegDiv" style="display:none;">
+        You can sign up for the party here: <br /><br />
+        <span onclick="hideRegistration();" style="font-weight: bold; cursor: pointer;">Go back to location info!</span> <br /><br />
+        <iframe src="http://www.eventdrive.be/registration/default.aspx?eventid=4447&tid=3" height="500px" width="100%" frameborder="0" scrolling="no"></iframe>
+    </div>
+    <div id="LocationDiv">
+        <table width="100%">
+            <tr>
+                <td>
+                    You can find the location of the party on the map to the right. <br /><br />
+                    <span onclick="hideRegistration();" style="font-weight:bold;cursor:pointer;">I want to register!</span>
+                </td>
+                <td>
+                    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script><div style="width:600px;"><div style="overflow:hidden;height:500px;width:600px;"><div id="gmap_canvas" style="height:500px; width:600px;"></div><iframe src="http://www.embed-google-map.com/mapembed.php"></iframe></div><div style="text-align:right;font-family:arial;font-size:9px;"><a style="font-size:9px;text-decoration:none;" href="http://www.embed-google-map.com" class="map-data">Embed Google Map</a></div></div>
+                    <script type="text/javascript">function init_map() { var myOptions = { zoom: 17, center: new google.maps.LatLng(51.0487725, 4.375843400000008), mapTypeId: google.maps.MapTypeId.SATELLITE }; map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions); marker = new google.maps.Marker({ map: map, position: new google.maps.LatLng(51.0487725, 4.375843400000008) }); infowindow = new google.maps.InfoWindow({ content: "<div style='position:relative;line-height:1.34;overflow:hidden;white-space:nowrap;display:block;'><div style='margin-bottom:2px;font-weight:500;'>Lan Party</div><span>Mechelsesteenweg 303 <br>  Blaasveld</span></div>" }); google.maps.event.addListener(marker, "click", function () { infowindow.open(map, marker); }); infowindow.open(map, marker); } google.maps.event.addDomListener(window, "load", init_map);</script>
+                </td>
+            </tr>
+        </table>
+        
+    </div>
+</div>
+
